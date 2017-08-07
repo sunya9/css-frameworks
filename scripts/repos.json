@@ -1,0 +1,12 @@
+{
+  "Bootstrap": "twbs/bootstrap",
+  "Bulma": "jgthms/bulma",
+  "Foundation": "zurb/foundation-sites",
+  "Material Design Lite": "google/material-design-lite",
+  "Spectre.css": "picturepan2/spectre",
+  "Milligram": "milligram/milligram",
+  "UIkit": "uikit/uikit",
+  "Materialize": "Dogfalo/materialize",
+  "siimple": "siimple/siimple",
+  "pure": "yahoo/pure"
+}
