@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="level-right">
-            <div class="level-item">
+            <div class="level-item" v-show="false">
               <nav class="tabs">
                 <ul>
                   <li>
