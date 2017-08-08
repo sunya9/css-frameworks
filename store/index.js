@@ -1,12 +1,6 @@
 import { Store } from 'vuex'
 import frameworks from '../data'
-
-const SORT_MODE_MAPPING = {
-  stars: 'stargazers_count',
-  forks: 'forks_count',
-  issues: 'open_issues_count',
-  title: 'name'
-}
+import { SORT_MODE_MAPPING } from '~/assets/js/shared'
 
 const store = () => new Store({
   strict: process.env.NODE_ENV !== 'production',
@@ -22,6 +16,18 @@ const store = () => new Store({
           return a[key].toLowerCase() > b[key].toLowerCase()
         } else {
           return a.data[key] < b.data[key]
+        }
+      }).filter(framework => {
+        const pp = state.preProcessor
+        if (pp) {
+          const isSass = pp === 'sass'
+          let res = framework.preprocessors.includes(pp)
+          if (!res && isSass) {
+            res = framework.preprocessors.includes('scss')
+          }
+          return res
+        } else {
+          return true
         }
       })
     }

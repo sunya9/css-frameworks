@@ -16,11 +16,7 @@
                   <div class="control">
                     <div class="select">
                       <select v-model="preProcessor">
-                        <option value="">All preprocessor</option>
-                        <option value="less">LESS</option>
-                        <option value="postcss">postcss</option>
-                        <option value="sass">Sass(scss)</option>
-                        <option value="stylus">Stylus</option>
+                        <option v-for="{title, value} in PREPROCESSORS" :value="value" :key="value">{{title}}</option>
                       </select>
                     </div>
                   </div>
@@ -59,12 +55,7 @@
 </template>
 
 <script>
-const SORT_MODES = [
-  'stars',
-  'forks',
-  'issues',
-  'title'
-]
+import { SORT_MODES, PREPROCESSORS } from '~/assets/js/shared'
 
 const LINKS = [
   {
@@ -79,7 +70,7 @@ const LINKS = [
 export default {
   data () {
     return {
-      SORT_MODES, LINKS
+      SORT_MODES, PREPROCESSORS, LINKS
     }
   },
   computed: {
