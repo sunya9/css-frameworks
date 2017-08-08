@@ -12,3 +12,4 @@ dist
 
 # project local
 data.json
+.env
