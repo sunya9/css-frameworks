@@ -1,16 +1,12 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <transition-group name="flip-list" tag="div"
-        class="columns wrap">
-        <framework
-          class="column is-3 is-flex"
-          v-for="framework in sortedFrameworks"
-          :key="framework.name"
-          :framework="framework"></framework>
-      </transition-group>
-    </div>
-  </section>
+  <transition-group name="flip-list" tag="div"
+    class="columns wrap">
+    <framework
+      class="column is-3 is-flex"
+      v-for="framework in sortedFrameworks"
+      :key="framework.name"
+      :framework="framework"></framework>
+  </transition-group>
 </template>
 
 <script>
