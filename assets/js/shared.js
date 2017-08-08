@@ -18,7 +18,7 @@ export const PREPROCESSORS = [
     value: ''
 
   }, {
-    title: 'Sass(scss)',
+    title: 'Sass(SCSS)',
     value: 'sass'
   }, {
     title: 'cssnext(postcss)',
@@ -32,3 +32,13 @@ export const PREPROCESSORS = [
     value: 'less'
   }
 ]
+
+const PREPROCESSOR_MAPPING = {
+  scss: 'SCSS',
+  sass: 'Sass',
+  stylus: 'Stylus',
+  less: 'LESS',
+  cssnext: 'cssnext'
+}
+
+export const correctPreprocessorName = name => PREPROCESSOR_MAPPING[name]
