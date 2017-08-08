@@ -1,22 +1,19 @@
-# css-frameworks
+# [CSS Frameworks](https://css-frameworks.unsweets.net/)
 
-> Compare CSS frameworks.
+Compare CSS frameworks. It has been affected [StaticGen](https://www.staticgen.com/).
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn
 
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
 # generate static project
 $ npm run generate
+# dist/ is publish root path
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+CSS Framework is deploed using [netlify](https://netlify.com/).
