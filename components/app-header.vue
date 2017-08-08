@@ -33,7 +33,7 @@
           </div>
           <div class="level-right">
             <div class="level-item" v-show="true">
-              <nav class="tabs">
+              <nav class="tabs visible">
                 <ul>
                   <nuxt-link
                     tag="li"
@@ -44,6 +44,42 @@
                     >
                       <a>{{title}}</a>
                   </nuxt-link>
+                  <li>
+                    <div class="dropdown is-right" :class="{
+                      'is-active': showShareDropdown
+                    }">
+                      <div class="dropdown-trigger">
+                        <a aria-haspopup="true" aria-controls="share-dropdown-menu" @click.stop="showShareDropdown = !showShareDropdown">
+                          <span class="icon">
+                            <i class="fa fa-share-alt"></i>&nbsp;
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                      </div>
+                      <div class="dropdown-menu is-primary" id="share-dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item" @click="openDialog('twitter')">
+                            <span class="icon has-text-centered">
+                              <i class="fa fa-fw fa-twitter"></i>
+                            </span>
+                            Twitter
+                          </a>
+                          <a class="dropdown-item" @click="openDialog('facebook')">
+                            <span class="icon has-text-centered">
+                              <i class="fa fa-fw fa-facebook-official"></i>
+                            </span>
+                            Facebook
+                          </a>
+                          <a class="dropdown-item" @click="openDialog('googleplus')">
+                            <span class="icon has-text-centered">
+                              <i class="fa fa-fw fa-google-plus-official"></i>
+                            </span>
+                            Google+
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -70,8 +106,16 @@ const LINKS = [
 export default {
   data () {
     return {
-      SORT_MODES, PREPROCESSORS, LINKS
+      showShareDropdown: false,
+      SORT_MODES,
+      PREPROCESSORS,
+      LINKS
     }
+  },
+  mounted () {
+    document.addEventListener('click', () => {
+      this.showShareDropdown = false
+    })
   },
   computed: {
     sortMode: {
@@ -93,15 +137,50 @@ export default {
     isIndex () {
       return this.$route.name === 'index'
     }
+  },
+  methods: {
+    openDialog (sns) {
+      const href = ({
+        twitter: `https://twitter.com/intent/tweet?url=${location.href}&amp;text=${document.title}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${location.href}`,
+        googleplus: `https://plus.google.com/share?url=${location.href}`
+      })[sns]
+      let width = 550
+      let height = 450
+      let sHeight = screen.height
+      let sWidth = screen.width
+      let left = Math.round((sWidth / 2) - (width / 2))
+      let top = 0
+      if (sHeight > width) {
+        top = Math.round(sHeight / 2 - height / 2)
+      }
+      window.open(href, '', `left=${left},top=${top},width=${width},height=${height},personalbar=0,toolbar=0,scrollbars=1,resizable=1`)
+    }
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import '~assets/css/variables';
+
 .slide-left-enter-active, .slide-left-leave-active {
   transition: all .2s ease;
 }
 .slide-left-enter, .slide-left-leave-to {
   transform: translateX(-100%);
   opacity: 0;
+}
+.visible {
+  overflow: visible;
+}
+.visible.tabs a {
+  border-bottom-color: transparent;
+  text-align: left;
+  display: block;
+}
+.dropdown-content {
+  background-color: $primary;
+}
+.dropdown-content a:hover {
+  color: #624c3e;
 }
 </style>
