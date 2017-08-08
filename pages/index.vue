@@ -20,6 +20,12 @@ export default {
   computed: mapGetters(['sortedFrameworks']),
   components: {
     Framework
+  },
+  head () {
+    return {
+      title: 'CSS Frameworks',
+      titleTemplate: null
+    }
   }
 }
 </script>
