@@ -10,7 +10,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "fetch": "node -r babel-register scripts/get-repo-data",
+    "fetch": "node scripts/get-repo-data",
     "deploy": "npm run fetch && npm run generate"
   },
   "dependencies": {
