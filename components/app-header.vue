@@ -2,7 +2,7 @@
   <header class="hero is-primary is-medium">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-size-1"><nuxt-link to="/" exact>CSS Frameworks</nuxt-link></h1>
+        <h1 class="title is-size-2"><nuxt-link to="/" exact>CSS Frameworks</nuxt-link></h1>
         <h2 class="subtitle">Leaderboard of CSS Frameworks.</h2>
       </div>
     </div>
