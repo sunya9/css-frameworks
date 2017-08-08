@@ -19,7 +19,7 @@ const store = () => new Store({
       return frameworks.sort((a, b) => {
         const key = SORT_MODE_MAPPING[state.sortMode]
         if (state.sortMode === 'title') {
-          return a[key] > b[key]
+          return a[key].toLowerCase() > b[key].toLowerCase()
         } else {
           return a.data[key] < b.data[key]
         }
