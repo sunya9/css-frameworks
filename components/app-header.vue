@@ -10,32 +10,44 @@
       <div class="container">
         <div class="level">
           <div class="level-left">
-            <div class="level-item" v-if="isIndex">
-              <div class="select">
-                <select v-model="preProcessor">
-                  <option value="">All preprocessor</option>
-                  <option value="less">LESS</option>
-                  <option value="postcss">postcss</option>
-                  <option value="sass">Sass(scss)</option>
-                  <option value="stylus">Stylus</option>
-                </select>
+            <transition name="slide-left">
+              <div class="level-item" v-if="isIndex">
+                <div class="field is-grouped">
+                  <div class="control">
+                    <div class="select">
+                      <select v-model="preProcessor">
+                        <option value="">All preprocessor</option>
+                        <option value="less">LESS</option>
+                        <option value="postcss">postcss</option>
+                        <option value="sass">Sass(scss)</option>
+                        <option value="stylus">Stylus</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <div class="select">
+                      <select v-model="sortMode">
+                        <option v-for="mode in SORT_MODES" :value="mode" :key="mode">Sorted by {{mode}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="level-item" v-if="isIndex">
-              <div class="select">
-              <select v-model="sortMode">
-                <option v-for="mode in SORT_MODES" :value="mode" :key="mode">Sorted by {{mode}}</option>
-              </select>
-              </div>
-            </div>
+            </transition>
           </div>
           <div class="level-right">
-            <div class="level-item" v-show="false">
+            <div class="level-item" v-show="true">
               <nav class="tabs">
                 <ul>
-                  <li>
-                    <nuxt-link to="/about">About</nuxt-link>
-                  </li>
+                  <nuxt-link
+                    tag="li"
+                    v-for="{path, title} in LINKS"
+                    :to="path"
+                    :key="path"
+                    active-class="is-active"
+                    >
+                      <a>{{title}}</a>
+                  </nuxt-link>
                 </ul>
               </nav>
             </div>
@@ -54,10 +66,20 @@ const SORT_MODES = [
   'title'
 ]
 
+const LINKS = [
+  {
+    path: '/about',
+    title: 'About CSS Frameworks'
+  }, {
+    path: '/rules',
+    title: 'The Rules'
+  }
+]
+
 export default {
   data () {
     return {
-      SORT_MODES
+      SORT_MODES, LINKS
     }
   },
   computed: {
@@ -83,3 +105,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.slide-left-enter-active, .slide-left-leave-active {
+  transition: all .2s ease;
+}
+.slide-left-enter, .slide-left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+</style>
