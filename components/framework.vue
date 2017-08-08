@@ -42,14 +42,16 @@
             {{framework.data.open_issues_count}}
           </div>
         </div>
-        <div class="content">
-          <dl class="inline">
-            <dt>License</dt>
-            <dd>{{framework.data.license.name}}</dd>
-          </dl>
-        </div>
         <div class="content description">
           <p>{{framework.data.description}}</p>
+        </div>
+        <div class="content bottom">
+          <dl class="columns is-multiline is-gapless info is-mobile">
+            <dt class="column is-marginless is-4">Meta</dt>
+            <dd class="column is-marginless is-8">{{metas}}</dd>
+            <dt class="column is-marginless is-4">License</dt>
+            <dd class="column is-marginless is-8">{{framework.data.license.spdx_id}}</dd>
+          </dl>
         </div>
       </div>
     </div>
@@ -57,11 +59,18 @@
 </template>
 
 <script>
+import { correctPreprocessorName } from '~/assets/js/shared'
+
 export default {
   props: ['framework'],
   computed: {
     simpleURL () {
       return this.framework.data.homepage.replace(/https?:\/\//, '')
+    },
+    metas () {
+      return this.framework.preprocessors.length
+        ? this.framework.preprocessors.map(correctPreprocessorName).join(', ')
+        : 'None'
     }
   }
 }
@@ -72,14 +81,14 @@ export default {
   overflow: hidden;
   white-space: nowrap;
 }
-.inline dt, .inline dd {
-  display: inline-block;
+.info dd {
+  position: relative;
 }
-.inline dt:after {
+.info dd::before {
   content: ':';
-}
-.inline dd {
-  margin-left: .5rem;
+  display: inline-block;
+  position: absolute;
+  left: -1rem;
 }
 .h100-wrapper {
   display: flex;
@@ -87,5 +96,15 @@ export default {
 }
 .h100 {
   flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.bottom {
+  margin-top: auto;
 }
 </style>
