@@ -1,5 +1,5 @@
 <template>
   <div class="content">
-    <h1>About CSS Frameworks</h1>
+    <h1>Rules</h1>
   </div>
 </template>
