@@ -38,6 +38,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: [
+      '~/assets/js/shared.js'
+    ]
   }
 }
