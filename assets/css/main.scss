@@ -2,3 +2,12 @@ $fa-font-path: '~font-awesome/fonts';
 @import 'variables';
 @import '~bulma/bulma';
 @import '~font-awesome/scss/font-awesome';
+
+.page-enter-active, .page-leave-active {
+  transition: all .5s ease;
+}
+
+.page-enter, .page-leave-active {
+  transform: translateY(100%);
+  opacity: 0;
+}
