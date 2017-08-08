@@ -37,8 +37,7 @@ class ReposData {
 
   async fetch (repo) {
     const [user, pass] = ReposData.USER_AND_PASS
-    return {
-      name: repo.name,
+    return Object.assign(repo, {
       data: await request(ReposData.END_POINT + repo.repo, {
         headers: {
           'User-Agent': 'CSS Frameworks',
@@ -53,7 +52,7 @@ class ReposData {
         console.error(err)
         process.exit(1)
       })
-    }
+    })
   }
 
   store (repoData) {
