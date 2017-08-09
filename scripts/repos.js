@@ -39,5 +39,9 @@ module.exports = [
     name: 'pure',
     repo: 'yahoo/pure',
     preprocessors: []
+  }, {
+    name: 'Semantic UI',
+    repo: 'Semantic-Org/Semantic-UI',
+    preprocessors: ['less']
   }
 ]
