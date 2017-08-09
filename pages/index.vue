@@ -84,11 +84,9 @@ export default {
       return this.sortModes[this.sortModeIdx]
     },
     sortedFrameworks () {
-      console.log(this.sortMode.key)
       return this.frameworks.slice().sort((a, b) => {
         const { a: av, b: bv } = this.sortMode.key
           .split('.').reduce((dest, key) => {
-            console.log(dest)
             return {
               a: dest.a[key],
               b: dest.b[key]
