@@ -59,7 +59,13 @@
 </template>
 
 <script>
-import { correctPreprocessorName } from '~/assets/js/shared'
+const PREPROCESSOR_MAPPING = {
+  scss: 'SCSS',
+  sass: 'Sass',
+  stylus: 'Stylus',
+  less: 'LESS',
+  cssnext: 'cssnext'
+}
 
 export default {
   props: ['framework'],
@@ -69,7 +75,7 @@ export default {
     },
     metas () {
       return this.framework.preprocessors.length
-        ? this.framework.preprocessors.map(correctPreprocessorName).join(', ')
+        ? this.framework.preprocessors.map(name => PREPROCESSOR_MAPPING[name]).join(', ')
         : 'None'
     }
   }
