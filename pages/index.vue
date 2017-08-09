@@ -81,20 +81,32 @@ export default {
   },
   computed: {
     sortMode () {
-      return sortModes[this.sortModeIdx]
+      return this.sortModes[this.sortModeIdx]
     },
     sortedFrameworks () {
-      return this.frameworks.sort((a, b) => {
+      console.log(this.sortMode.key)
+      return this.frameworks.slice().sort((a, b) => {
         const { a: av, b: bv } = this.sortMode.key
           .split('.').reduce((dest, key) => {
+            console.log(dest)
             return {
               a: dest.a[key],
               b: dest.b[key]
             }
           }, { a, b })
-        return typeof av === 'string' // title
-          ? av.toLowerCase() > bv.toLowerCase()
-          : av < bv
+        if (typeof av === 'string') { // title
+          const an = av.toLowerCase()
+          const bn = bv.toLowerCase()
+          if (an < bn) {
+            return -1
+          } else if (an > bn) {
+            return 1
+          } else {
+            return 0
+          }
+        } else {
+          return bv - av
+        }
       }).filter(framework => {
         const pp = this.preprocessor
         if (pp) {
