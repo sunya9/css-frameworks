@@ -1,3 +1,8 @@
+const path = require('path')
+
+const dataPath = path.join(__dirname, process.env.repoDataPath || 'data.json')
+const frameworks = require(dataPath)
+
 module.exports = {
   /*
   ** Headers of the page
@@ -39,9 +44,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    vendor: [
-      '~/assets/js/shared.js'
-    ]
+    }
+  },
+  env: {
+    frameworks
   }
 }
