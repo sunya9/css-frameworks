@@ -11,7 +11,9 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "fetch": "node scripts/get-repo-data",
-    "deploy": "npm run fetch && npm run generate"
+    "deploy": "npm run fetch && npm run generate",
+    "test": "npm run lint && npm run test:ava",
+    "test:ava": "ava"
   },
   "dependencies": {
     "bulma": "^0.5.0",
@@ -24,6 +26,7 @@
     "sass-loader": "^6.0.6"
   },
   "devDependencies": {
+    "ava": "^0.21.0",
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
@@ -32,7 +35,8 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "jsdom": "^11.1.0"
   },
   "engines": {
     "node": "8"
