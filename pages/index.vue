@@ -1,23 +1,115 @@
 <template>
-  <transition-group
-    name="flip-list"
-    tag="div"
-    class="columns wrap"
-    >
-    <framework
-      class="column is-3 is-flex flip-list-item"
-      v-for="framework in sortedFrameworks"
-      :key="framework.name"
-      :framework="framework"></framework>
-  </transition-group>
+  <div>
+    <div class="field is-grouped is-grouped-centered attach-header">
+      <div class="control">
+        <div class="select">
+          <select v-model="preprocessor">
+            <option v-for="{ title, value } in preprocessors" :value="value" :key="value">{{title}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="control">
+        <div class="select">
+          <select v-model="sortModeIdx">
+            <option v-for="({ value }, $index) in sortModes" :value="$index" :key="value">Sorted by {{value}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <transition-group
+      name="flip-list"
+      tag="div"
+      class="columns wrap"
+      >
+      <framework
+        class="column is-3-widescreen is-4-desktop is-6-tablet is-flex flip-list-item"
+        v-for="framework in sortedFrameworks"
+        :key="framework.name"
+        :framework="framework"></framework>
+    </transition-group>
+  </div>
 </template>
 
 <script>
 import Framework from '~/components/framework'
-import { mapGetters } from 'vuex'
 
+const preprocessors = [
+  {
+    title: 'All preprocessors',
+    value: ''
+
+  }, {
+    title: 'Sass(SCSS)',
+    value: 'sass'
+  }, {
+    title: 'cssnext(postcss)',
+    value: 'cssnext'
+  }, {
+    title: 'Stylus',
+    value: 'stylus'
+
+  }, {
+    title: 'LESS',
+    value: 'less'
+  }
+]
+
+const sortModes = [
+  {
+    value: 'stars',
+    key: 'data.stargazers_count'
+  }, {
+    value: 'forks',
+    key: 'data.forks_count'
+  }, {
+    value: 'issues',
+    key: 'data.open_issues_count'
+  }, {
+    value: 'title',
+    key: 'name'
+  }
+]
 export default {
-  computed: mapGetters(['sortedFrameworks']),
+  asyncData ({ env: { frameworks = [] } }) {
+    return {
+      frameworks,
+      preprocessors,
+      preprocessor: preprocessors[0].value,
+      sortModes,
+      sortModeIdx: 0
+    }
+  },
+  computed: {
+    sortMode () {
+      return sortModes[this.sortModeIdx]
+    },
+    sortedFrameworks () {
+      return this.frameworks.sort((a, b) => {
+        const { a: av, b: bv } = this.sortMode.key
+          .split('.').reduce((dest, key) => {
+            return {
+              a: dest.a[key],
+              b: dest.b[key]
+            }
+          }, { a, b })
+        return typeof av === 'string' // title
+          ? av.toLowerCase() > bv.toLowerCase()
+          : av < bv
+      }).filter(framework => {
+        const pp = this.preprocessor
+        if (pp) {
+          const isSass = pp === 'sass'
+          let res = framework.preprocessors.includes(pp)
+          if (!res && isSass) {
+            res = framework.preprocessors.includes('scss')
+          }
+          return res
+        } else {
+          return true
+        }
+      })
+    }
+  },
   components: {
     Framework
   },
@@ -29,7 +121,9 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import '~bulma/sass/utilities/all';
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -44,5 +138,12 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.attach-header {
+  @include desktop {
+    position: absolute;
+    top: -5rem;
+  }
 }
 </style>
