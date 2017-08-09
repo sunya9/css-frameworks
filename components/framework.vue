@@ -49,8 +49,10 @@
           <dl class="columns is-multiline is-gapless info is-mobile">
             <dt class="column is-marginless is-4">Meta</dt>
             <dd class="column is-marginless is-8">{{metas}}</dd>
-            <dt class="column is-marginless is-4">License</dt>
-            <dd class="column is-marginless is-8">{{framework.data.license.spdx_id}}</dd>
+            <template v-if="framework.data.license">
+              <dt class="column is-marginless is-4">License</dt>
+              <dd class="column is-marginless is-8">{{framework.data.license.spdx_id}}</dd>
+            </template>
           </dl>
         </div>
       </div>
@@ -71,7 +73,9 @@ export default {
   props: ['framework'],
   computed: {
     simpleURL () {
-      return this.framework.data.homepage.replace(/https?:\/\//, '')
+      return this.framework.data.homepage
+        ? this.framework.data.homepage.replace(/https?:\/\//, '')
+        : '&nbsp;'
     },
     metas () {
       return this.framework.preprocessors.length
