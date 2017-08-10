@@ -71,9 +71,5 @@ module.exports = [
     name: 'mini.css',
     repo: 'Chalarangelo/mini.css',
     preprocessors: ['scss']
-  }, {
-    name: 'Kube',
-    repo: 'imperavi/kube',
-    preprocessors: ['scss']
   }
 ]
