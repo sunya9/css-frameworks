@@ -62,7 +62,7 @@ module.exports = [
   }, {
     name: 'Wing',
     repo: 'kbrsh/wing',
-    preprocessors: ['']
+    preprocessors: []
   }, {
     name: 'Mobi.css',
     repo: 'mobi-css/mobi.css',
