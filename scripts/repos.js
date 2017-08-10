@@ -43,5 +43,37 @@ module.exports = [
     name: 'Semantic UI',
     repo: 'Semantic-Org/Semantic-UI',
     preprocessors: ['less']
+  }, {
+    name: 'MUI',
+    repo: 'muicss/mui',
+    preprocessors: ['scss']
+  }, {
+    name: 'sakura',
+    repo: 'oxalorg/sakura',
+    preprocessors: ['scss']
+  }, {
+    name: 'Cutestrap',
+    repo: 'tylerchilds/cutestrap',
+    preprocessors: ['scss']
+  }, {
+    name: 'Kube',
+    repo: 'imperavi/kube',
+    preprocessors: ['scss']
+  }, {
+    name: 'Wing',
+    repo: 'kbrsh/wing',
+    preprocessors: ['']
+  }, {
+    name: 'Mobi.css',
+    repo: 'mobi-css/mobi.css',
+    preprocessors: ['scss']
+  }, {
+    name: 'mini.css',
+    repo: 'Chalarangelo/mini.css',
+    preprocessors: ['scss']
+  }, {
+    name: 'Kube',
+    repo: 'imperavi/kube',
+    preprocessors: ['scss']
   }
 ]
