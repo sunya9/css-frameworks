@@ -13,7 +13,7 @@
           </div>
           <div class="level-right">
             <div class="level-item" v-show="true">
-              <nav class="tabs visible">
+              <nav class="tabs visible is-boxed">
                 <ul>
                   <nuxt-link
                     tag="li"
@@ -125,10 +125,7 @@ export default {
   text-align: left;
   display: block;
 }
-.dropdown-content {
-  background-color: $primary;
-}
-.dropdown-content a:hover {
-  color: #624c3e;
+.dropdown-content a {
+  color: $link !important;
 }
 </style>
