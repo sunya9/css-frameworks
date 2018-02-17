@@ -12,6 +12,7 @@
         </h3>
         <h4 class="subtitle is-size-6 oneline has-text-centered">
           <a :href="framework.data.homepage"
+            :style="{ visibility: simpleURL === '　' ? 'hidden' : 'visible' }"
             target="_new">
             {{simpleURL}}
           </a>
@@ -42,16 +43,16 @@
             {{framework.data.open_issues_count}}
           </div>
         </div>
-        <div class="content description">
-          <p>{{framework.data.description}}</p>
+        <div class="content">
+          <p>{{description}}</p>
         </div>
         <div class="content bottom">
           <dl class="columns is-multiline is-gapless info is-mobile">
-            <dt class="column is-marginless is-4">Meta</dt>
-            <dd class="column is-marginless is-8">{{metas}}</dd>
+            <dt class="column is-marginless is-5">Meta</dt>
+            <dd class="column is-marginless is-7">{{metas}}</dd>
             <template v-if="framework.data.license">
-              <dt class="column is-marginless is-4">License</dt>
-              <dd class="column is-marginless is-8">{{framework.data.license.spdx_id}}</dd>
+              <dt class="column is-marginless is-5">License</dt>
+              <dd class="column is-marginless is-7">{{framework.data.license.spdx_id || framework.license}}</dd>
             </template>
           </dl>
         </div>
@@ -61,6 +62,8 @@
 </template>
 
 <script>
+import gemoji from 'gemoji'
+
 const PREPROCESSOR_MAPPING = {
   scss: 'SCSS',
   sass: 'Sass',
@@ -75,12 +78,15 @@ export default {
     simpleURL () {
       return this.framework.data.homepage
         ? this.framework.data.homepage.replace(/https?:\/\//, '')
-        : '&nbsp;'
+        : '　'
     },
     metas () {
       return this.framework.preprocessors.length
         ? this.framework.preprocessors.map(name => PREPROCESSOR_MAPPING[name]).join(', ')
         : 'None'
+    },
+    description () {
+      return this.framework.data.description.replace(/:([a-z0-9A-Z_-]+):/g, str => gemoji.name[str.slice(1, -1)].emoji)
     }
   }
 }
@@ -116,5 +122,8 @@ export default {
 }
 .bottom {
   margin-top: auto;
+}
+.framework-inner {
+  overflow: hidden;
 }
 </style>
