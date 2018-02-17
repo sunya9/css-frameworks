@@ -46,6 +46,7 @@ module.exports = [
   }, {
     name: 'MUI',
     repo: 'muicss/mui',
+    license: 'MIT',
     preprocessors: ['scss']
   }, {
     name: 'sakura',
@@ -62,7 +63,7 @@ module.exports = [
   }, {
     name: 'Wing',
     repo: 'kbrsh/wing',
-    preprocessors: []
+    preprocessors: ['stylus']
   }, {
     name: 'Mobi.css',
     repo: 'mobi-css/mobi.css',
