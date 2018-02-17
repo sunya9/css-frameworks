@@ -7,65 +7,57 @@
       </div>
     </div>
     <div class="hero-foot">
-      <div class="container">
-        <div class="level">
-          <div class="level-left">
-          </div>
-          <div class="level-right">
-            <div class="level-item" v-show="true">
-              <nav class="tabs visible is-boxed">
-                <ul>
-                  <nuxt-link
-                    tag="li"
-                    v-for="{path, title} in LINKS"
-                    :to="path"
-                    :key="path"
-                    active-class="is-active"
-                    >
-                      <a>{{title}}</a>
-                  </nuxt-link>
-                  <li>
-                    <div class="dropdown is-right" :class="{
-                      'is-active': showShareDropdown
-                    }">
-                      <div class="dropdown-trigger">
-                        <a aria-haspopup="true" aria-controls="share-dropdown-menu" @click.stop="showShareDropdown = !showShareDropdown">
-                          <span class="icon">
-                            <i class="fa fa-share-alt"></i>&nbsp;
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                          </span>
-                        </a>
-                      </div>
-                      <div class="dropdown-menu is-primary" id="share-dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item" @click="openDialog('twitter')">
-                            <span class="icon has-text-centered">
-                              <i class="fa fa-fw fa-twitter"></i>
-                            </span>
-                            Twitter
-                          </a>
-                          <a class="dropdown-item" @click="openDialog('facebook')">
-                            <span class="icon has-text-centered">
-                              <i class="fa fa-fw fa-facebook-official"></i>
-                            </span>
-                            Facebook
-                          </a>
-                          <a class="dropdown-item" @click="openDialog('googleplus')">
-                            <span class="icon has-text-centered">
-                              <i class="fa fa-fw fa-google-plus-official"></i>
-                            </span>
-                            Google+
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+      <nav class="tabs visible is-right">
+        <div class="container">
+          <ul>
+            <nuxt-link
+              tag="li"
+              v-for="{path, title} in LINKS"
+              :to="path"
+              :key="path"
+              active-class="is-active"
+              >
+                <a>{{title}}</a>
+            </nuxt-link>
+            <li>
+              <div class="dropdown is-right" :class="{
+                'is-active': showShareDropdown
+              }">
+                <div class="dropdown-trigger">
+                  <a aria-haspopup="true" aria-controls="share-dropdown-menu" @click.stop="showShareDropdown = !showShareDropdown">
+                    <span class="icon">
+                      <i class="fa fa-share-alt"></i>&nbsp;
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+                <div class="dropdown-menu is-primary" id="share-dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <a class="dropdown-item" @click="openDialog('twitter')">
+                      <span class="icon">
+                        <i class="fa fa-fw fa-twitter"></i>
+                      </span>
+                      Twitter
+                    </a>
+                    <a class="dropdown-item" @click="openDialog('facebook')">
+                      <span class="icon">
+                        <i class="fa fa-fw fa-facebook-official"></i>
+                      </span>
+                      Facebook
+                    </a>
+                    <a class="dropdown-item" @click="openDialog('googleplus')">
+                      <span class="icon">
+                        <i class="fa fa-fw fa-google-plus-official"></i>
+                      </span>
+                      Google+
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 </template>
@@ -115,17 +107,18 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+@import '~bulma/sass/utilities/initial-variables.sass';
+@import '~bulma/sass/utilities/derived-variables';
 @import '~assets/css/variables';
 
 .visible.tabs {
   overflow: visible;
-}
-.visible.tabs a {
-  border-bottom-color: transparent;
-  text-align: left;
-  display: block;
-}
-.dropdown-content a {
-  color: $link !important;
+  a {
+    border-bottom-color: transparent;
+    display: block;
+  }
+  .dropdown-content a {
+    color: $grey-dark;
+  }
 }
 </style>

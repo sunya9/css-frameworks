@@ -1,11 +1,11 @@
 <template>
   <footer class="footer">
     <div class="container content has-text-centered">
-      <p>
-        CSS Frameworks is ran by <strong><a href="https://unsweets.net/">unsweets</a></strong>.
+      <p class="subtitle is-5">
+        CSS Frameworks is ran by <strong><a href="https://unsweets.net/">&lt;unsweets/&gt;</a></strong>.
       </p>
       <p>
-        <small>© unsweets <time :datetime="date.toISOString()" :title="`Last modified: ${date.toISOString()}`">{{date.getFullYear()}}</time></small></p>
+        <small>© &lt;unsweets/&gt; <time :datetime="date.toISOString()" :title="`Last modified: ${date.toISOString()}`">{{date.getFullYear()}}</time></small>
       </p>
     </div>
   </footer>
