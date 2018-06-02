@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.0",
-    "dotenv": "^5.0.0",
+    "dotenv": "^6.0.0",
     "font-awesome": "^4.7.0",
     "gemoji": "^4.2.0",
     "node-sass": "^4.5.3",
