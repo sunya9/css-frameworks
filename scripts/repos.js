@@ -72,5 +72,9 @@ module.exports = [
     name: 'mini.css',
     repo: 'Chalarangelo/mini.css',
     preprocessors: ['scss']
+  }, {
+    name: 'Tailwind CSS',
+    repo: 'tailwindcss/tailwindcss',
+    preprocessors: ['postcss']
   }
 ]
