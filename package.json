@@ -20,7 +20,7 @@
     "font-awesome": "^4.7.0",
     "gemoji": "^4.2.0",
     "node-sass": "^4.5.3",
-    "nuxt": "^1.3.0",
+    "nuxt": "^1.4.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "sass-loader": "^6.0.6"
