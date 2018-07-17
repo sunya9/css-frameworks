@@ -22,7 +22,7 @@ module.exports = [
   }, {
     name: 'Milligram',
     repo: 'milligram/milligram',
-    preprocessors: ['sass', 'scss', 'less', 'stylus', 'cssnext']
+    preprocessors: ['sass', 'scss', 'less', 'stylus', 'postcss']
   }, {
     name: 'UIkit',
     repo: 'uikit/uikit',

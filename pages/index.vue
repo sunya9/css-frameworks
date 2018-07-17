@@ -42,8 +42,8 @@ const preprocessors = [
     title: 'Sass(SCSS)',
     value: 'sass'
   }, {
-    title: 'cssnext(postcss)',
-    value: 'cssnext'
+    title: 'PostCSS',
+    value: 'postcss'
   }, {
     title: 'Stylus',
     value: 'stylus'

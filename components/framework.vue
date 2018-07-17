@@ -69,7 +69,7 @@ const PREPROCESSOR_MAPPING = {
   sass: 'Sass',
   stylus: 'Stylus',
   less: 'LESS',
-  cssnext: 'cssnext'
+  postcss: 'PostCSS'
 }
 
 export default {
