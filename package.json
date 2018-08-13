@@ -15,7 +15,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
-    "bulma": "^0.7.0",
+    "bulma": "^0.7.1",
     "dotenv": "^6.0.0",
     "font-awesome": "^4.7.0",
     "gemoji": "^4.2.0",
