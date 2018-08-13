@@ -49,7 +49,7 @@ class ReposData {
           user, pass
         }
       }).catch(err => {
-        console.error(err)
+        console.error(err) // eslint-disable-line
         process.exit(1)
       })
     })
@@ -67,7 +67,7 @@ class ReposData {
 
 new ReposData()
   .fetchAllAndStore()
-  .catch(console.error)
+  .catch(console.error) // eslint-disable-line
 
 // for test
 module.exports = ReposData

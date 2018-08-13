@@ -12,9 +12,9 @@
         </h3>
         <h4 class="subtitle is-size-6 oneline has-text-centered">
           <a :href="framework.data.homepage"
-            :style="{ visibility: simpleURL === '　' ? 'hidden' : 'visible' }"
+            :style="{ visibility: !simpleURL ? 'hidden' : 'visible' }"
             target="_new">
-            {{simpleURL}}
+            {{simpleURL || '.'}}
           </a>
         </h4>
         <div class="columns is-mobile">
@@ -76,9 +76,7 @@ export default {
   props: ['framework'],
   computed: {
     simpleURL () {
-      return this.framework.data.homepage
-        ? this.framework.data.homepage.replace(/https?:\/\//, '')
-        : '　'
+      return (this.framework.data.homepage || '').replace(/https?:\/\//, '')
     },
     metas () {
       return this.framework.preprocessors.length
