@@ -21,7 +21,7 @@
           <div class="column has-text-centered">
             <div>
               <span class="icon is-small">
-                <i class="fa fa-star"></i>
+                <font-awesome-icon icon="star" />
               </span>
             </div>
             {{framework.data.stargazers_count}}
@@ -29,7 +29,7 @@
           <div class="column has-text-centered">
             <div>
               <span class="icon is-small">
-                <i class="fa fa-code-fork"></i>
+                <font-awesome-icon icon="code-branch" />
               </span>
             </div>
             {{framework.data.forks_count}}
@@ -37,7 +37,7 @@
           <div class="column has-text-centered">
             <div>
               <span class="icon is-small">
-                <i class="fa fa-bug"></i>
+                <font-awesome-icon icon="bug" />
               </span>
             </div>
             {{framework.data.open_issues_count}}

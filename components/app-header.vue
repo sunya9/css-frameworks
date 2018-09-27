@@ -25,9 +25,11 @@
               }">
                 <div class="dropdown-trigger">
                   <a aria-haspopup="true" aria-controls="share-dropdown-menu" @click.stop="showShareDropdown = !showShareDropdown">
-                    <span class="icon">
-                      <i class="fa fa-share-alt"></i>&nbsp;
-                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <span class="icon is-small">
+                      <font-awesome-icon icon="share-alt" />
+                    </span>
+                    <span class="icon is-small">
+                      <font-awesome-icon icon="angle-down" aria-hidden="true" />
                     </span>
                   </a>
                 </div>
@@ -35,19 +37,19 @@
                   <div class="dropdown-content">
                     <a class="dropdown-item" @click="openDialog('twitter')">
                       <span class="icon">
-                        <i class="fa fa-fw fa-twitter"></i>
+                        <font-awesome-icon :icon="['fab', 'twitter']" fixed-width />
                       </span>
                       Twitter
                     </a>
                     <a class="dropdown-item" @click="openDialog('facebook')">
                       <span class="icon">
-                        <i class="fa fa-fw fa-facebook-official"></i>
+                        <font-awesome-icon :icon="['fab', 'facebook']" fixed-width />
                       </span>
                       Facebook
                     </a>
                     <a class="dropdown-item" @click="openDialog('googleplus')">
                       <span class="icon">
-                        <i class="fa fa-fw fa-google-plus-official"></i>
+                        <font-awesome-icon :icon="['fab', 'google-plus']" fixed-width />
                       </span>
                       Google+
                     </a>
@@ -66,10 +68,10 @@
 const LINKS = [
   {
     path: '/about',
-    title: 'About CSS Frameworks'
+    title: 'About'
   }, {
     path: '/rules',
-    title: 'The Rules'
+    title: 'Rules'
   }
 ]
 
@@ -107,12 +109,13 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import '~bulma/sass/utilities/initial-variables.sass';
+@import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/derived-variables';
 @import '~assets/css/variables';
 
 .visible.tabs {
   overflow: visible;
+  margin-bottom: 1px;
   a {
     border-bottom-color: transparent;
     display: block;
