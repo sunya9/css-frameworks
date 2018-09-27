@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 const dataPath = path.join(__dirname, process.env.repoDataPath || 'data.json')
 const frameworks = require(dataPath)
@@ -20,10 +20,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato' }
     ]
   },
-  css: [{
-    src: '~assets/css/main.scss',
-    lang: 'scss'
-  }],
+  css: ['~/assets/css/main.scss'],
+
   /*
   ** Customize the progress-bar color
   */
@@ -48,5 +46,6 @@ module.exports = {
   },
   env: {
     frameworks
-  }
+  },
+  plugins: ['~/plugins/font-awesome']
 }
