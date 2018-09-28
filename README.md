@@ -1,7 +1,6 @@
 # [CSS Frameworks](https://css-frameworks.unsweets.net/)
 
-[![Build Status](https://travis-ci.org/sunya9/css-frameworks.svg?branch=master)](https://travis-ci.org/sunya9/css-frameworks)
-[![Greenkeeper badge](https://badges.greenkeeper.io/sunya9/css-frameworks.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/sunya9/css-frameworks.svg?branch=master)](https://travis-ci.com/sunya9/css-frameworks)
 
 Compare CSS frameworks. It has been affected [StaticGen](https://www.staticgen.com/).
 
@@ -12,10 +11,10 @@ Compare CSS frameworks. It has been affected [StaticGen](https://www.staticgen.c
 $ yarn
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn run dev
 
 # generate static project
-$ npm run generate
+$ yarn run generate
 # dist/ is publish root path
 ```
 
