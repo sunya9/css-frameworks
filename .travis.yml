@@ -8,9 +8,6 @@ notifications:
 cache: yarn
 deploy:
   provider: script
-  script: >
-    if [ $TRAVIS_EVENT_TYPE = "cron" ]; then
-      curl -X POST -d '{}' $DEPLOY_HOOK_URL;
-    fi
+  script: bash deploy.sh
   on:
     branch: master
