@@ -4,13 +4,10 @@ node_js:
 notifications:
   email: false
   slack:
-    secure: MuvEJ5Wnvz0FjgzhbWyqMwWi4lU3ORGyEC30co9seaPibn3T6uyYEntyF0jocdAe7ivyTvfynj5Yb8Zuqw6PLpSwDK3N0ayZ66oaWC3baH1F5b9jEuO7Xo/zCdKzXFFEdwjxMwP8ap2wisPb98pPC2RMSLosBQghMgnYOzPfEM5mk25zmLuZr3wfLES/lOxlKCR9lI6nJ6whdb6Jf4QQvrK9bopS17RerS+fhObuWZzVE4m8UjZExYa/p9nr3uLIAhlMmNqNifz0BBI+XGx8XzVE+p98oGdBM387aCdinvWbBIvplAFl5y7t2ilfDw6mGBCzQBfJXp2Fq39V49qiQkpCGuRVHtCUBqC5c7gt8nLSMipDS86uAgjwFj9OFMN9uVUaCLUknvnUPNWn9vKHLyWvwXDeHmAwJFmAXRwXlMqu2CSAv6LIFXzKvwM5brwHUFiPkuwte0Oxb7U4l3CRM+HaZamkJOYzVBPkGBecOydRyySfAfJHMgYGjE+dFthBrdjUlpmcoCShEsVLM8eSsrKXOvW9KSGkI9Q6h/hRw2v9bMD2PpDe+KJX8kFWsL6MYO2/4TOrYdmeA8B35EAIVbaAAOKvFVAfG61OSnWpvXcgEBQRZQNj2ZnF1O+tMZsxeEINApo3ZWdNoDamPs2CbbGcEm1m7vnp6B8=
+    secure: L9yKpaivmdew0geT4fT1yEfu19T6/ktRo1CObHXiAHHjeapDuwV7IevmcRMXmFEwDRQbYjFeeV5tzh7Qkh1s72b9kvu3eloZLnWaQwTtOaCiF4L6ppLLG+KV07T/RIiicF6r3HkiTdxbZQI3PHfm+HSk1Xd3allr/p/eBMRf0VspnbUBglyQoLrNafIlmgPiY+a4zSQ0Hso9t+2lA58b/ZbMVLPnvKpi4FApBMifD5rBK4O0IPou1n0f68y28jVzTOcwk0KiP5HkbIBwm/FDrYBLp5TX9OdeqYBb2bWw3ZkaHT5+2hziZdVzbPK3of42g2+SachL1W991/2ppZ1l8j/azYU8YIGzq+IWjf7OAQkA7AVbh6615w16EMFvcA9ZefLp9hoMXHSh0OQ4vSW5C6Ee0swcQ2kLugooWbg8bK3Kecx0Dkp1i/IbMywikc3KQqQNyyoT2RYUENhVHkYOonSjklauPyz5ksFzzg/wrbcoAOL9fuhGTabcZkiyP/zXe/9Dhrfd7vXHdGG5GdpIpEnvQ5+UeM4gtqb3E3CYKqp5i9yQyH7+duWQqZeqYdZRmuoCeM0SU0cXwMnAJv7I8oJK011MQmNAOe/7UF8pifH6LmNHqW7WsZbz7TJTPEDtDw1BJ3BRJ+18gqu5Wd7NC14k6K0mSvngpYi0oq3B9xY=
 cache: yarn
 deploy:
   provider: script
-  script: |
-    if [ $TRAVIS_EVENT_TYPE = 'cron' ]; then
-      curl -X POST -d '{}' $DEPLOY_HOOK_URL
-    fi
+  script: bash deploy.sh
   on:
     branch: master
