@@ -22,7 +22,7 @@
     "bulma": "0.7.2",
     "dotenv": "6.1.0",
     "gemoji": "4.2.1",
-    "node-sass": "4.9.3",
+    "node-sass": "4.9.4",
     "nuxt": "2.2.0",
     "request": "2.88.0",
     "request-promise": "4.2.2",
