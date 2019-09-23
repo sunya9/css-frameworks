@@ -15,9 +15,9 @@
     "test": "npm run lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.24",
-    "@fortawesome/free-brands-svg-icons": "5.11.1",
-    "@fortawesome/free-solid-svg-icons": "5.11.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.25",
+    "@fortawesome/free-brands-svg-icons": "5.11.2",
+    "@fortawesome/free-solid-svg-icons": "5.11.2",
     "@fortawesome/vue-fontawesome": "0.1.7",
     "bulma": "0.7.5",
     "dotenv": "8.1.0",
