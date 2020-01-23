@@ -3767,10 +3767,10 @@ gaze@^1.0.0:
   dependencies:
     globule "^1.0.0"
 
-gemoji@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/gemoji/-/gemoji-4.2.1.tgz#88495f479a2e35a2c693e0ed321933372fc74c68"
-  integrity sha512-V9lUpRSn+KQGavZx8Pk+6mxG3kaz21ae2kTCXuT36KaRPNgYU8eHtj/RcUCNFVvmwppsYYz3nnNS9lmcP5kTsg==
+gemoji@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/gemoji/-/gemoji-5.0.0.tgz#e2958eca5492c3a7c4a2ef87a264e303f0ef8ff1"
+  integrity sha512-Jy/K6KuJXsa4uQo/jFGimw5SKhoOY04KYTyteLh1r++73UQn8g4AA4TSe+7SXUkHGR60JHbYxJxVaNJsRX0Ddg==
 
 get-caller-file@^1.0.1:
   version "1.0.3"
