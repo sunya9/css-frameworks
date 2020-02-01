@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import gemoji from 'gemoji'
 
 const PREPROCESSOR_MAPPING = {
   scss: 'SCSS',
@@ -84,7 +83,8 @@ export default {
         : 'None'
     },
     description () {
-      return this.framework.data.description.replace(/:([a-z0-9A-Z_-]+):/g, str => gemoji.name[str.slice(1, -1)].emoji)
+      const gemoji = require('gemoji/name-to-emoji.json')
+      return this.framework.data.description.replace(/:([a-z0-9A-Z_-]+):/g, str => gemoji[str.slice(1, -1)])
     }
   }
 }
