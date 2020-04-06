@@ -12,7 +12,7 @@
     "precommit": "npm run lint",
     "fetch": "node scripts/get-repo-data",
     "deploy": "npm run fetch && npm run generate",
-    "test": "npm run lint && npm run generate"
+    "test": "npm run lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.26",
