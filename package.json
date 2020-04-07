@@ -31,8 +31,8 @@
   "devDependencies": {
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",
-    "eslint-loader": "3.0.3",
-    "eslint-plugin-vue": "6.1.2",
+    "eslint-loader": "3.0.4",
+    "eslint-plugin-vue": "6.2.2",
     "prettier": "2.0.4"
   }
 }
