@@ -21,7 +21,7 @@
     "@fortawesome/vue-fontawesome": "0.1.9",
     "bulma": "0.8.1",
     "dotenv": "8.2.0",
-    "gemoji": "5.0.0",
+    "gemoji": "5.0.1",
     "node-sass": "4.13.1",
     "nuxt": "2.12.2",
     "request": "2.88.2",
