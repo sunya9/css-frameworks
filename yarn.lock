@@ -3930,10 +3930,10 @@ gaze@^1.0.0:
   dependencies:
     globule "^1.0.0"
 
-gemoji@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/gemoji/-/gemoji-5.0.0.tgz#e2958eca5492c3a7c4a2ef87a264e303f0ef8ff1"
-  integrity sha512-Jy/K6KuJXsa4uQo/jFGimw5SKhoOY04KYTyteLh1r++73UQn8g4AA4TSe+7SXUkHGR60JHbYxJxVaNJsRX0Ddg==
+gemoji@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/gemoji/-/gemoji-5.0.1.tgz#4cea541c735b74ec82edd56c2d46538cd54f355d"
+  integrity sha512-7yV9K8JdiK+h2M4YDnf/8bunJKYvs0t0p8eKh7zexVSuXddRG9Ue18ZViKOZljISk57DE64X19gvJfHZmhggGg==
 
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
