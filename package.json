@@ -23,7 +23,7 @@
     "dotenv": "8.2.0",
     "gemoji": "5.0.1",
     "node-sass": "4.14.1",
-    "nuxt": "2.14.1",
+    "nuxt": "2.14.2",
     "request": "2.88.2",
     "request-promise": "4.2.6",
     "sass-loader": "8.0.2"
